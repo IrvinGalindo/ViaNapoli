@@ -15,7 +15,7 @@
 
    <script type="text/javascript">
         function mensaje(usr,pwd){
-          var parametros = {"numTrabajador":usr,"pass":pwd};
+          var parametros = {"id_usuario":usr,"pwd":pwd};
             $.ajax({
               type: "POST",
               url: "lg.php",
@@ -38,18 +38,18 @@
         <form class="cmxform">
           <div class="form-group">
             <label for="numTrabajador">Número de empleado</label>
-            <input class="form-control" id="numTrabajador" type="number" required autofocus placeholder="Ingresar su número de trabajador">
+            <input class="form-control" id="id_usuario" type="number" required autofocus placeholder="Ingresar su número de trabajador">
           </div>
           <div class="form-group">
             <label for="pass">Password</label>
-            <input class="form-control" id="pass" type="password" required placeholder="Ingresar Password">
+            <input class="form-control" id="pwd" type="password" required placeholder="Ingresar Password">
           </div>
           <div class="form-group">
             <div class="form-check" id="verificar">
              
             </div>
           </div>
-          <input  class="btn btn-primary btn-block" type="submit" onclick="mensaje($('#numTrabajador').val(),$('#pass').val());return false;" value="Login" />
+          <input  class="btn btn-primary btn-block" type="submit" onclick="mensaje($('#id_usuario').val(),$('#pwd').val());return false;" value="Login" />
         </form>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <?php
  session_start();
-if (empty($_SESSION['idTrabajador'])) {
+if (isset($_SESSION['usuario'])) {
   echo "<script type='text/javascript'>
 alert ('Autentificación necesaria'); window.location.replace('index.html')</script>";
   exit();
@@ -11,6 +11,7 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
 <head>
   <?php include("moAF.php");
         include("moDF.php"); 
+        include("moAU.php"); 
         include("pruebaClase.php");
    ?>
 

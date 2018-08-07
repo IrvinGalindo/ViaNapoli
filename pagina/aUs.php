@@ -1,33 +1,30 @@
 <?php
 include ("config.php");
 
-if (empty($_POST['idTrabajador'])){
+/*Validar que los campos no esten vacios
+*/
+		$idTrabajador = $_POST['idTrabajador'];
+		$nombre = $_POST['nombre'];
+		$paterno = $_POST['paterno'];
+		$materno = $_POST['materno'];
+		$cargo = $_POST['cargo'];
+		$pass = $_POST['contrasenia'];
+		
+if (empty($idTrabajador)){
 			$errors[] = "Número de trabajador vacio";
-		} else if (empty($_POST['nombre'])){
+		} else if (empty($nombre)){
 			$errors[] = "nombre vacio";
-		} else if (empty($_POST['paterno'])){
+		} else if (empty($paterno)){
 			$errors[] = "Apellido paterno vacío";
-		}   else if (empty($_POST['materno'])) {
+		}   else if (empty($materno)) {
 			$errors[] = "Apellido materno vacío";
-		}   else if (empty($_POST['cargo'])) {
+		}   else if (empty($cargo)) {
 			$errors[] = "Cargo vacío";
-		}   else if (empty($_POST['contrasenia'])) {
+		}   else if (empty($pass)) {
 			$errors[] = "Contraseña vacío";
-		} else if (
-			!empty($_POST['idTrabajador']) && 
-			!empty($_POST['nombre']) &&
-			!empty($_POST['paterno']) &&
-			!empty($_POST['materno']) &&
-			!empty($_POST['cargo']) &&
-			!empty($_POST['contrasenia'])
-					
-		){
+		} else if (!empty($errors)){
 
-		$nombre=$_POST['nombre'];
-		$paterno=$_POST['paterno'];
-		$materno=$_POST['materno'];
-		$cargo=$_POST['cargo'];
-		$pass=$_POST['contrasenia'];
+		
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$idTrabajador=mysqli_real_escape_string($conexion,(strip_tags($_POST["idTrabajador"],ENT_QUOTES)));
 		$nombre=mysqli_real_escape_string($conexion,(strip_tags($_POST["nombre"],ENT_QUOTES)));
@@ -36,8 +33,10 @@ if (empty($_POST['idTrabajador'])){
 		$cargo=mysqli_real_escape_string($conexion,(strip_tags($_POST["cargo"],ENT_QUOTES)));
 		$contrasenia=mysqli_real_escape_string($conexion,(strip_tags($_POST["contrasenia"],ENT_QUOTES)));
 
-	$sql="INSERT INTO trabajadores VALUES (".$idTrabajador.", '".$nombre."', '".$paterno."','".$materno."','".$cargo."','".$contrasenia."')";
-
+		$stmt = $pdo->prepare("INSERT INTO trabajadores VALUES (?, '?', '?','?','?','?')");
+		//ejecutamos el query haciendo que pdo reemplace las variables.
+		$stmt->execute(array($idTrabajador, $nombre, $paterno, $materno, $cargo, $pass));
+	
 		$query_update = mysqli_query($conexion,$sql);
 			if ($query_update){
 				echo "<meta http-equiv='Refresh' content='1.25;url=sUs.php'>";
@@ -48,7 +47,7 @@ if (empty($_POST['idTrabajador'])){
 			}
 			else
 				$errors []= " ".mysqli_error($conexion);
-		
+		}
 		if (isset($errors)){
 			
 			?>
@@ -76,6 +75,6 @@ if (empty($_POST['idTrabajador'])){
 							?>
 				</div>
 				<?php
-			}}
+			}
 
 ?>	

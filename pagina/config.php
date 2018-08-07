@@ -2,7 +2,7 @@
 
 try{
 //nos conectamos a la base de datos con un conneciton string
-$pdo = new PDO('mysql:host=localhost;dbname=flexcoah;charset=utf8mb4', 'admin', '1092pezveslad15_,');
+$pdo = new PDO('mysql:host=localhost;dbname=vianapoli;charset=utf8mb4', 'napoli', 'ViaNapoli@123');
 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
