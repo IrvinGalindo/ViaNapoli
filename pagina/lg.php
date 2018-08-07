@@ -18,7 +18,7 @@
         //obtenemos los resultado
         $resultado = $stmt -> fetchColumn(0);       
        echo $resultado;
-        if(!empty($resultado)){
+        if(strcmp($resultado,"")!===0){
            
             if(strcmp($resultado,"0") === 0)
             {
