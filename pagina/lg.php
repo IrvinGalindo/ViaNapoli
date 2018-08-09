@@ -2,6 +2,10 @@
     session_start();
     include 'config.php';
     //obtenemos las credenciales del usuario
+
+    //Lg descomentar las 3 lineas del 2, 25, 29 
+    //admin page regresar el codigo de la etiqueta php isset cambiar a empty
+    //Seesion con id_usuario
      $usr=$_REQUEST['id_usuario'];
      $pwd=$_REQUEST['pwd'];
      
@@ -22,11 +26,11 @@
            
             if(strcmp($resultado,"0") === 0)
             {
-                $_SESSION['usuario'] = $usr;
+                $_SESSION['id_usuario'] = $usr;
                 echo "<script>window.location.replace('adminPage.php')</script>";
              }
             else{
-                 $_SESSION['usuario'] = $usr;
+                 $_SESSION['id_usuario'] = $usr;
              echo "<script>window.location.replace('aCl.php')</script>";
             }
         }else{

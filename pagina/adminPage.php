@@ -1,3 +1,11 @@
+
+<?php
+ session_start();
+if (empty($_SESSION['id_usuario'])) {
+  echo "<script type='text/javascript'>
+alert ('Autentificación necesaria'); window.location.replace('index.html')</script>";
+  exit();
+  } ?>
 <!DOCTYPE html>
 <html lang="en">
 
