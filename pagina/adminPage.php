@@ -1,9 +1,11 @@
 <?php
  session_start();
-if (isset($_SESSION['usuario'])) {
+if(!isset($_SESSION['usuario'])) {
   echo "<script type='text/javascript'>
-alert ('Autentificación necesaria'); window.location.replace('index.html')</script>";
+  alert ('Autentificación necesaria'); window.location.replace('index.html')</script>";
   exit();
+  }else{
+    echo "HOlaa".$_SESSION['usuario'];
   } ?>
 <!DOCTYPE html>
 <html lang="en">

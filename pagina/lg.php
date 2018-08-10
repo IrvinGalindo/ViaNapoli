@@ -17,13 +17,13 @@
         $stmt->execute(array($usr, $pwd));
         //obtenemos los resultado
         $resultado = $stmt -> fetchColumn(0);       
-       echo $resultado;
+       $resultado;
         if(strcmp($resultado,"")!==0){
            
             if(strcmp($resultado,"0") === 0)
             {
                 $_SESSION['usuario'] = $usr;
-                echo "<script>window.location.replace('adminPage.php')</script>";
+             echo "<script>window.location.replace('adminPage.php')</script>";
              }
             else{
                  $_SESSION['usuario'] = $usr;
