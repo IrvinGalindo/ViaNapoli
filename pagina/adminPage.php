@@ -93,24 +93,28 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
 
           <?php
           include ("config.php");
-           $resultados = mysqli_query($conexion,"SELECT nombre,color FROM folders where padre='/' order by nombre");
-            if (mysqli_num_rows($resultados)>0) {
-              echo " <div class='row'>";
-           while ($consulta = mysqli_fetch_array($resultados))
-             {
-               echo "
+          $stmt = $pdo->prepare("SELECT id_mesa FROM mesa");
+          //ejecutamos el query haciendo que pdo reemplace las variables.
+          $stmt->execute();
+          $mesas = $stmt -> fetchAll();
+     
+          //obtenemos los resultado
+          if (isset($mesas)) {
+            echo " <div class='row'>";
+            foreach ($mesas as $mesa) {
+              echo "
                 <div class='col-xl-3 col-sm-6 mb-3'>
-                  <div class='card text-white bg-".$consulta['color']." o-hidden h-100'>
+                  <div class='card text-white bg-success o-hidden h-150'>
                       <div>
-                        <a href='' data-target='#dfolder' data-toggle='modal' data-id='".$consulta['nombre']."' data-padre='/' style='cursor: pointer'><font color='white'><i class='fa fa-fw fa-trash'></font></i></a>
+                        <a href='' data-target='#dfolder' data-toggle='modal' data-id='".$mesa['id_mesa']."' data-padre='/' style='cursor: pointer'><font color='white'><i class='fa fa-fw fa-trash'></font></i></a>
                       </div>
                     <div class='card-body'>
                         <div class='card-body-icon'>
-                          <i class='fa fa-fw fa-folder-open'></i>
+                          <i class='fa fa-fw fa-cutlery'></i>
                         </div>
-                      <div class='mr-5'>".$consulta['nombre']."</div>
+                      <div class='mr-5'>".$mesa['id_mesa']."</div>
                     </div>
-                    <a class='card-footer text-white clearfix small z-1' href='sFo.php?p=".$consulta['nombre']."'>
+                    <a class='card-footer text-white clearfix small z-1' href='sFo.php?p=".$mesa['id_mesa']."'>
                       <span class='float-left'>Ver contenido</span>
                       <span class='float-right'>
                         <i class='fa fa-angle-right'></i>

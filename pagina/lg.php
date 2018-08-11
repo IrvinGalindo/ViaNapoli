@@ -6,8 +6,8 @@
     //Lg descomentar las 3 lineas del 2, 25, 29 
     //admin page regresar el codigo de la etiqueta php isset cambiar a empty
     //Seesion con id_usuario
-     $usr=$_REQUEST['id_usuario'];
-     $pwd=$_REQUEST['pwd'];
+     $usr=$_POST['id_usuario'];
+     $pwd=$_POST['pwd'];
      
      if(empty($usr)){
         $errors[]= "Ingresar un usuario";
@@ -21,7 +21,7 @@
         $stmt->execute(array($usr, $pwd));
         //obtenemos los resultado
         $resultado = $stmt -> fetchColumn(0);       
-       echo $resultado;
+        $resultado;
         if(strcmp($resultado,"")!==0){
            
             if(strcmp($resultado,"0") === 0)
