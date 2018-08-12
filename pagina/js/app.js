@@ -20,7 +20,7 @@ $("#agregarUser" ).submit(function( event ) {
 		*/
 		$( document ).ready(function() {
 		$("#inicio").on("click",function(){
-			$("#contenedor").load("aTa.php");
+			$("#contenedor").load("sTa.php");
 		});
 		$("#usuarios").on("click",function(){
 			$("#contenedor").load("aWa.php");
@@ -96,25 +96,18 @@ $("#agregarUser" ).submit(function( event ) {
 		  event.preventDefault();
 		});
 
-//Preparar campo padre para agregar un nuevo folder
-$('#agregarfolder').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget) // Botón que activó el modal
-		  var padre = button.data('padre') // Extraer la información de atributos de datos
-		  var modal = $(this)
-		  modal.find('#padre').val(padre)
-		})
-// obtener datos para ingresar un nuevo folder en la DB
-$("#agregarFolder" ).submit(function( event ) {
+// obtener datos para ingresar una nueva mesa en la DB
+$("#agregarMesa").submit(function( event ) {
 		var parametros = $(this).serialize();
 			 $.ajax({
 					type: "POST",
-					url: "aFo.php",
+					url: "aTa.php",
 					data: parametros,
 					 beforeSend: function(objeto){
-						$("#regUser").html("Mensaje: Cargando...");
+						$("#regMesa").html("Mensaje: Cargando...");
 					  },
 					success: function(datos){
-					$("#regUser").html(datos);
+					$("#regMesa").html(datos);
 					//load(1);
 				  }
 			});

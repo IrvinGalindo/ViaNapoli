@@ -10,7 +10,7 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
 <html lang="en">
 
 <head>
-  <?php include("moAF.php");
+  <?php include("moATa.php");
         include("moDF.php"); 
         include("moAU.php"); 
         include("pruebaClase.php");
@@ -88,7 +88,7 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
         <li class="breadcrumb-item active">Mesas</li>
       </ol>
       <!-- Icon Cards-->
-      <div align="right" class="mr-1" ><a data-toggle='modal' data-target='#agregarfolder' data-padre="/"  href="" style="cursor: pointer;"><font size="6"><i class="fa fa-fw fa-plus-circle"></i></font></a></div><br>
+      <div align="right" class="mr-1" ><a data-toggle='modal' data-target='#agregarmesa'  href="" style="cursor: pointer;"><font size="6"><i class="fa fa-fw fa-plus-circle"></i></font></a></div><br>
      
 
           <?php

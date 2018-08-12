@@ -15,13 +15,12 @@
         if(empty($pwd)){
             $errors[]= "Ingresar password";
         }else{
-             //preparamos nuestra declaracion
+         //preparamos nuestra declaracion
         $stmt = $pdo->prepare("SELECT tipo FROM usuario WHERE id_usuario=? AND pwd=?");
         //ejecutamos el query haciendo que pdo reemplace las variables.
         $stmt->execute(array($usr, $pwd));
         //obtenemos los resultado
         $resultado = $stmt -> fetchColumn(0);       
-        $resultado;
         if(strcmp($resultado,"")!==0){
            
             if(strcmp($resultado,"0") === 0)

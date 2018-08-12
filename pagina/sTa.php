@@ -8,19 +8,19 @@
         <li class="breadcrumb-item active">Mesas</li>
       </ol>
       <!-- Icon Cards-->
-      <div align="right" class="mr-1" ><a data-toggle='modal' data-target='#agregarfolder' data-padre="/"  href="" style="cursor: pointer;"><font size="6"><i class="fa fa-fw fa-plus-circle"></i></font></a></div><br>
-              
-         <?php
+      <div align="right" class="mr-1" ><a data-toggle='modal' data-target='#agregarmesa'  href="" style="cursor: pointer;"><font size="6"><i class="fa fa-fw fa-plus-circle"></i></font></a></div><br>
+     
+
+          <?php
           include ("config.php");
           $stmt = $pdo->prepare("SELECT id_mesa FROM mesa");
           //ejecutamos el query haciendo que pdo reemplace las variables.
           $stmt->execute();
           $mesas = $stmt -> fetchAll();
      
-          //Comprobamos que el arreglo meso no este vacio
+          //obtenemos los resultado
           if (isset($mesas)) {
             echo " <div class='row'>";
-            
             foreach ($mesas as $mesa) {
               echo "
                 <div class='col-xl-3 col-sm-6 mb-3'>
@@ -56,7 +56,9 @@
     ?>
   </div>
 </div>
-  <!-- /.container-fluid-->
+    
+    
+    <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
@@ -64,6 +66,3 @@
           <small>Copyright © Your Website 2017</small>
         </div>
       </div>
-    </footer>
-
- 
