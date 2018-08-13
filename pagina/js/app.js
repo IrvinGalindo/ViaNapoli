@@ -19,13 +19,18 @@ $("#agregarUser" ).submit(function( event ) {
 		/*Funcion para cambiar de archivo en la subseccion de nuestro slide principal
 		*/
 		$( document ).ready(function() {
-		$("#inicio").on("click",function(){
+			
 			$("#contenedor").load("sTa.php");
-		});
-		$("#usuarios").on("click",function(){
-			$("#contenedor").load("aWa.php");
-		});
-	});		
+
+			$("#inicio").on("click",function(){
+				$("#contenedor").load("sTa.php");
+			});
+			
+			$("#usuarios").on("click",function(){
+				$("#contenedor").load("sWa.php");
+			});
+		});		
+		
 		// obtencion de un número de trabajador especifico para su eliminacion
 		//usado en todos los datadelete de la pagina, es necesario que todos tengan
 		//data-id y no data-nombre por ejemplo
@@ -114,31 +119,28 @@ $("#agregarMesa").submit(function( event ) {
 		  event.preventDefault();
 		});
 
-//Preparar campo padre para eliminar un folder especifico
-$('#dfolder').on('show.bs.modal', function (event) {
+//Preparar campo id para eliminar una mesa en especifico por medio del div interno
+$('#dmesa').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Botón que activó el modal
 		  var id = button.data('id') // Extraer la información de atributos de datos
-		  var button2 = $(event.relatedTarget) // Botón que activó el modal
-		  var padre = button2.data('padre') // Extraer la información de atributos de datos
-		  
+
 		  var modal = $(this)
 		  modal.find('#id').val(id)
-		  modal.find('#padre').val(padre)
 		})
-// eliminacion de un folder especifico
-		$( "#dFolder" ).submit(function( event ) {
+// eliminacion de una mesa en especificando llamando al form
+		$( "#dMesa" ).submit(function( event ) {
 		var parametros = $(this).serialize();
 			 $.ajax({
 					type: "POST",
-					url: "dFo.php",
+					url: "dTa.php",
 					data: parametros,
 					 beforeSend: function(objeto){
-						$("#revis").html("Mensaje: Cargando...");
+						$("#regDeMesa").html("Mensaje: Cargando...");
 					  },
 					success: function(datos){
-					$("#revis").html(datos);
+					$("#regDeMesa").html(datos);
 					
-					$('#dataDelete').modal('dismiss');
+					$('#dmesa').modal('dismiss');
 					//load(1);
 				  }
 			});

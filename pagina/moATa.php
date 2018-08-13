@@ -21,7 +21,7 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
             <input  type="text" class="form-control" id="idMes" name="idMes" placeholder="A1" required />
           </div>
           <div class="form-group">
-            <label for="nomUsuario" class="control-label">Usuario:</label>
+            <label for="nomUsuario" class="control-label">Asignar un mesero:</label>
             <select type="text" class="form-control" id="idUs" name="idUs" required />
             <?php
                 include("config.php");

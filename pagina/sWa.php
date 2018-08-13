@@ -1,4 +1,4 @@
- <div class="content-wrapper" id="main2"">
+ <div class="content-wrapper" id="mainUs">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
@@ -11,8 +11,9 @@
       <div class="card mb-3">
         <div class="card-header">
          <h5> Team Via Napoli</h5> 
-           <a align="right" class="nav-link"  data-toggle="modal" data-target="#agregaruser">
-            <i class="fa fa-fw fa-user-plus" style="cursor: pointer" ></i></a>
+           
+           <div align="right" class="mr-1"><a data-toggle = "modal" data-target = "#agregaruser">
+           <i class="fa fa-fw fa-user-plus" style="cursor: pointer" ></i></a></div>
          
         </div>
         <div class="card-body">

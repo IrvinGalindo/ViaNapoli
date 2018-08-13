@@ -6,15 +6,19 @@ include ("config.php");
  $idUs = $_POST["idUs"];
  
  if (!empty($idMes)) {
-  
+	//Tendremos un try catch que atrapara los errores del usuario
   try{
-    $stmt = $pdo -> prepare("INSERT INTO mesa(id_mesa, id_usuario) VALUES (?,?)");
-    //ejecutamos el query hacieno que pdo reemplace las variables.
-    $stmt -> execute(array($idMes, $idUs));
-    echo "<meta http-equiv='Refresh' content='1.25;url=adminPage.php'>";
-    $messages[] = "Mesa creada";
+		// preparamos el query dentro de nuestro obejto pdo
+    $stmt = $pdo -> prepare("INSERT INTO mesa(id_mesa, id_usuario) VALUES (?, ?)");
+    //ejecutamos el query haciendo que pdo reemplace las variables.
+		$stmt -> execute(array($idMes, $idUs));
+		// generamos el refresh de la pagina
+		echo "<meta http-equiv='Refresh' content='1.25;url=adminPage.php'>";
+		//guardamos el mensaje de registro exitoso
+		$messages[] = "Mesa creada";
+		
   }catch(PDOException $e){
-    if($e->getCode() == 23000){
+		if($e -> getCode() == 23000){
       $errors[] = "Esa mesa ya existe";
     }
   }
