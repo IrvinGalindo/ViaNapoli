@@ -79,9 +79,6 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
     </nav>
   
     <div id="contenedor">
-      <?php
-        echo "<script type='text/javascript'>	$('#mainTa').show();</script>";
-      ?>
     </div>
     
     
