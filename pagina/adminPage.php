@@ -13,6 +13,7 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
   <?php include("moATa.php");
         include("moDTa.php"); 
         include("moAU.php"); 
+        include("moUPTa.php"); 
         include("pruebaClase.php");
    ?>
 

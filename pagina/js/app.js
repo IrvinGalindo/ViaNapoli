@@ -72,7 +72,7 @@ $("#agregarUser" ).submit(function( event ) {
 		  var contras=button.data('contras')
 
 		  var modal = $(this)
-		  modal.find('.modal-title').text('Modificar usuario: '+idtrabajador)
+		  modal.find('.modal-title').text('Modificar usuario: '+ idtrabajador)
 		  modal.find('.modal-body #idTrabajador').val(idtrabajador)
 		  modal.find('.modal-body #nombre').val(nombre)
 		  modal.find('.modal-body #paterno').val(paterno)
@@ -100,6 +100,38 @@ $("#agregarUser" ).submit(function( event ) {
 			});
 		  event.preventDefault();
 		});
+
+			// modificar modal de usuarios para ingresar datos especificos
+			$('#updta').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) // Botón que activó el modal
+				var idMesa = button.data('idmesa') // Extraer la información de atributos de datos
+			
+	
+				var modal = $(this)
+				modal.find('.modal-title').text('Modificar mesa: '+ idMesa)
+				modal.find('.modal-body #idMesa').val(idMesa)
+				
+				//$('.alert').hide();//Oculto alert
+			})
+	
+			// modificar registro en la DB del modal de usuarios
+			$("#updTa" ).submit(function( event ) {
+			var parametros = $(this).serialize();
+				 $.ajax({
+						type: "POST",
+						url: "updTa.php",
+						data: parametros,
+						 beforeSend: function(objeto){
+							$("#regUpdTa").html("Mensaje: Cargando...");
+							},
+						success: function(datos){
+						$("#regUpdTa").html(datos);
+						
+						//load(1);
+						}
+				});
+				event.preventDefault();
+			});
 
 // obtener datos para ingresar una nueva mesa en la DB
 $("#agregarMesa").submit(function( event ) {
