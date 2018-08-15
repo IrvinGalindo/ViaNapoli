@@ -17,6 +17,7 @@ $("#agregarUser" ).submit(function( event ) {
 		});
 		
 		/*Funcion para cambiar de archivo en la subseccion de nuestro slide principal
+		del administrador (adminPage.php)
 		*/
 		$( document ).ready(function() {
 			
@@ -29,6 +30,15 @@ $("#agregarUser" ).submit(function( event ) {
 			$("#usuarios").on("click",function(){
 				$("#contenedor").load("sWa.php");
 			});
+		});		
+
+			/*Funcion para cambiar de archivo en la subseccion de nuestro slide principal
+		del administrador (waiterPage.php)
+		*/
+		$( document ).ready(function() {
+			
+			$("#contenedorWa").load("sVWa.php");
+
 		});		
 		
 		// obtencion de un número de trabajador especifico para su eliminacion

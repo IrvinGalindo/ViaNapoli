@@ -128,7 +128,7 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
-   <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

@@ -30,7 +30,7 @@
              }
             else{
                  $_SESSION['id_usuario'] = $usr;
-             echo "<script>window.location.replace('aCl.php')</script>";
+             echo "<script>window.location.replace('waiterPage.php')</script>";
             }
         }else{
             $errors[]= "Usuario o password incorrectos";
