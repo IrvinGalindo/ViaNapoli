@@ -30,16 +30,12 @@ $("#agregarUser" ).submit(function( event ) {
 			$("#usuarios").on("click",function(){
 				$("#contenedor").load("sWa.php");
 			});
-		});		
 
-			/*Funcion para cambiar de archivo en la subseccion de nuestro slide principal
-		del administrador (waiterPage.php)
-		*/
-		$( document ).ready(function() {
-			
+			/*Funcion para cambiar de archivo en la subseccion de nuestro slide principal	del administrador (waiterPage.php)S		*/
 			$("#contenedorWa").load("sVWa.php");
-
 		});		
+
+		
 		
 		// obtencion de un número de trabajador especifico para su eliminacion
 		//usado en todos los datadelete de la pagina, es necesario que todos tengan

@@ -53,7 +53,7 @@
         <div class='alert alert-info' role='alert'>
           <button type='button' class='close' data-dismiss='alert'>&times;</button>
           <p align='center'>
-            Sin folders
+            Sin Mesas
           </p>
         </div>";
     ?>

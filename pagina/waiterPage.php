@@ -4,7 +4,8 @@ if (empty($_SESSION['id_usuario'])) {
   echo "<script type = 'text/javascript'>
 alert ('Autentificación necesaria'); window.location.replace('index.html')</script>";
   exit();
-  } ?>
+  } 
+  include('moDTa.php');?>
 <!DOCTYPE html>
 <html lang = "en">
 
@@ -32,6 +33,8 @@ alert ('Autentificación necesaria'); window.location.replace('index.html')</scr
     <link href = "css/freelancer.min.css" rel = "stylesheet">
     <link href = "css/sb-admin.css" rel = "stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
   </head>
 
   <body id = "page-top" >
