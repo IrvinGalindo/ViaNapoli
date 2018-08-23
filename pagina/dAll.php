@@ -1,21 +1,23 @@
 <?php
 include ("config.php");
 
-$idMesa = $_POST['id'];
-if (empty($idMesa)) {
+$idAll = $_POST['id'];
+$tname = $_POST['tname'];
+if (empty($idAll) && empty($tname)) {
 	$errors[] = "Vacio";
 }
 else{
 	try{
-		$stmt = $pdo->prepare("DELETE FROM mesa WHERE id_mesa = ?");
+		$stmt = $pdo->prepare("DELETE FROM $tname WHERE id_mesa = ?");
 		//ejecutamos el query haciendo que pdo reemplace las variables.
-		$stmt -> execute(array($idMesa));
+		$stmt -> execute(array($idAll));
 		echo "<meta http-equiv='Refresh' content='1.25;url=adminPage.php'>";
-			$messages[] = "Mesa eliminado.";
+			$messages[] = "$tname eliminado.";
 	}catch(PDOException $e){
 		if($e->getCode() == 23000){
 			$errors[] = "Esa mesa no existe";
 		}
+		echo $e -> getMessage();
 	  }
 		
 			

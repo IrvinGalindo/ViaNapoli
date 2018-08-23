@@ -26,7 +26,7 @@
                 <div class='col-xl-4 col-sm-6 mb-3'>
                   <div class='card text-white bg-success o-hidden h-150'>
                       <div>
-                       <a href='' data-target='#dmesa' data-toggle='modal' data-id='".$mesa['id_mesa']."' style='cursor: pointer'><font color='white'><i class='fa fa-fw fa-trash'></font></i></a>
+                       <a href='' data-target='#dall' data-toggle='modal' data-id='".$mesa['id_mesa']."' data-tname='mesa' style='cursor: pointer'><font color='white'><i class='fa fa-fw fa-trash'></font></i></a>
                        <a href='' data-target='#updta' data-toggle='modal' data-idmesa = '".$mesa['id_mesa']."' style='cursor: pointer'><font color='white'><i class='fa fa-fw fa-refresh'></font></i></a>
                     </div>
                     <div class='card-body'>

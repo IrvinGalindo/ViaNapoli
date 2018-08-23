@@ -28,44 +28,18 @@ $("#agregarUser" ).submit(function( event ) {
 			});
 			
 			$("#usuarios").on("click",function(){
-				$("#contenedor").load("sWa.php");
-			});
+				
+				$("#contenedor").load("sWa.php", function(){
+					$("#tomylove").load("aWa.php");
+				});
+							
+		
+		});
 
 			/*Funcion para cambiar de archivo en la subseccion de nuestro slide principal	del administrador (waiterPage.php)S		*/
 			$("#contenedorWa").load("sVWa.php");
 		});		
-
 		
-		
-		// obtencion de un número de trabajador especifico para su eliminacion
-		//usado en todos los datadelete de la pagina, es necesario que todos tengan
-		//data-id y no data-nombre por ejemplo
-		$('#dataDelete').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget) // Botón que activó el modal
-		  var id = button.data('id') // Extraer la información de atributos de datos
-		  var modal = $(this)
-		  modal.find('#id').val(id)
-		})
-
-		// eliminacion de un usuario especifico
-		$( "#dUser" ).submit(function( event ) {
-		var parametros = $(this).serialize();
-			 $.ajax({
-					type: "POST",
-					url: "dUs.php",
-					data: parametros,
-					 beforeSend: function(objeto){
-						$("#revis").html("Mensaje: Cargando...");
-					  },
-					success: function(datos){
-					$("#revis").html(datos);
-					
-					$('#dataDelete').modal('dismiss');
-					//load(1);
-				  }
-			});
-		  event.preventDefault();
-		});
 
     	// modificar modal de usuarios para ingresar datos especificos
 		$('#upduser').on('show.bs.modal', function (event) {
@@ -158,19 +132,22 @@ $("#agregarMesa").submit(function( event ) {
 		});
 
 //Preparar campo id para eliminar una mesa en especifico por medio del div interno
-$('#dmesa').on('show.bs.modal', function (event) {
+$('#dall').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Botón que activó el modal
 		  var id = button.data('id') // Extraer la información de atributos de datos
+			var tname = button.data('tname')
 
 		  var modal = $(this)
-		  modal.find('#id').val(id)
-		})
+			modal.find('#id').val(id)
+			modal.find('#tname').val(tname)
+		
+		});
 // eliminacion de una mesa en especificando llamando al form
-		$( "#dMesa" ).submit(function( event ) {
+		$( "#dAll" ).submit(function( event ) {
 		var parametros = $(this).serialize();
 			 $.ajax({
 					type: "POST",
-					url: "dTa.php",
+					url: "dAll.php",
 					data: parametros,
 					 beforeSend: function(objeto){
 						$("#regDeMesa").html("Mensaje: Cargando...");
@@ -178,7 +155,7 @@ $('#dmesa').on('show.bs.modal', function (event) {
 					success: function(datos){
 					$("#regDeMesa").html(datos);
 					
-					$('#dmesa').modal('dismiss');
+				//	$('#dmesa').modal('dismiss');
 					//load(1);
 				  }
 			});

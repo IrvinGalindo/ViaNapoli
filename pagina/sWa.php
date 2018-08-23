@@ -47,25 +47,31 @@
               <?php
               include("config.php");
      
-        $resultados = mysqli_query($conexion,"SELECT idTrabajador,nombre,paterno,materno,cargo,pass FROM trabajadores where cargo!='OPERADOR' && cargo!='INTERCAMBISTA'");
+         //preparamos nuestra declaracion
+         $stmt  =  $pdo->prepare("SELECT id_usuario, nombre, pwd, tipo, fecha_inicio FROM usuario");
+         //ejecutamos el query haciendo que pdo reemplace las variables.
+         $stmt -> execute();
+         //obtenemos los resultado
+        $resultado  =  $stmt -> fetchAll();       
 
-        while ($consulta = mysqli_fetch_array($resultados))
+        
+        foreach($resultado as $usuario)
         {
 
-         echo "<tr>"; 
-                  echo "<td><center>"; echo $consulta['idTrabajador'];  
-                  echo "</center></td>";
-                  echo "<td><center>"; echo $consulta['nombre'];  
-                  echo"</center></center></td>";
-                  echo "<td><center>"; echo $consulta['paterno']; 
-                  echo"</center></center></td>";
-                  echo "<td><center>"; echo $consulta['materno'];  
-                  echo"</center></center></td>";
-                  echo "<td><center>"; echo $consulta['cargo'];  
-                  echo"</center></center></td>";
-                  echo "<td><center> <button type='button' class='btn btn-success' data-toggle='modal' data-target='#upduser' data-id='".$consulta['idTrabajador']."' data-nombre='".$consulta['nombre']."' data-paterno='".$consulta['paterno']."'data-materno='".$consulta['materno']."' data-cargo='".$consulta['cargo']."' data-contras='".$consulta['pass']."'> <i class='fa fa-refresh'></i></button></center></td>";
-                echo " <td><center><button type='button' class='btn btn-danger' data-toggle='modal' data-id='".$consulta['idTrabajador']."' data-target='#dataDelete'> <i class='fa fa-long-arrow-up fa-trash'></i></button></center></td>";
-                echo "</tr>";
+         echo "<tr>
+                  <td><center>".$usuario['id_usuario']."  
+                  </center></td>
+                  <td><center>".$usuario['nombre']."  
+                  </center></td>
+                  <td><center>".$usuario['tipo']."
+                  </center></td>
+                  <td><center>".$usuario['pwd']."  
+                  </center></td>
+                  <td><center>".$usuario['fecha_inicio']."  
+                  </center></td>
+                  <td><center> <button type='button' class='btn btn-success' data-toggle='modal' data-target='#upduser' data-id='".$usuario['idTrabajador']."' data-nombre='".$usuario['nombre']."' data-paterno='".$usuario['paterno']."'data-materno='".$usuario['materno']."' data-cargo='".$usuario['cargo']."' data-contras='".$usuario['pass']."'> <i class='fa fa-refresh'></i></button></center></td>
+                <td><center><button type='button' class='btn btn-danger' data-toggle='modal' data-id='".$usuario['idTrabajador']."' data-target='#dataDelete'> <i class='fa fa-long-arrow-up fa-trash'></i></button></center></td>
+                </tr>";
            }
                 ?>
               </tbody>
